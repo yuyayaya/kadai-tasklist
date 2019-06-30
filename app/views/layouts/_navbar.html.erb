@@ -1,0 +1,8 @@
+<ul class="navbar-nav">
+  <% unless logged_in? %>
+        <li class="nav-item"><%= link_to 'Signup', signup_path, class: 'nav-link' %></li>
+        <li class="nav-item"><%= link_to 'Login', sessions_new_path, class: 'nav-link' %></li>
+  <% else %>        
+        <li class="nav-item"><%= link_to 'Logout', logout_path, method: :delete %></li>
+  <% end %>
+</ul>
