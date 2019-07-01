@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def require_user_logged_in
     unless logged_in?
-      redirect_to root_path
+      redirect_to sessions_new_path
     end
   end
 end
