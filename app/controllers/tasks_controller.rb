@@ -1,11 +1,15 @@
 class TasksController < ApplicationController
+    include ApplicationHelper
+    include TasksHelper
      before_action :require_user_logged_in, only: [:edit, :destroy, :new, :show]
-     before_action :correct_user, only:[:edit, :destroy]
+     before_action :correct_user, only:[:edit, :destroy, :create, :show]
      
     def index
       if logged_in?
         @task = Task.all
         @tasks = current_user.tasks.order(id: :desc)
+      else
+          redirect_to sessions_new_path
       end
     end
     
