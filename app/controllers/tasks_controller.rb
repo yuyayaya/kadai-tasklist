@@ -2,7 +2,7 @@ class TasksController < ApplicationController
     include ApplicationHelper
     include TasksHelper
      before_action :require_user_logged_in, only: [:edit, :destroy, :new, :show]
-     before_action :correct_user, only:[:edit, :destroy, :create, :show]
+     before_action :correct_user, only:[:edit, :destroy, :show]
      
     def index
       if logged_in?
